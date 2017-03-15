@@ -1,2 +1,10 @@
-# memory_leak_tutorials
-To demonstrate how to identify and solve memory issues in Dart
+# Memory Leak Examples, Tutorials, Videos
+
+```
+git clone git@github.com:robbecker-wf/memory_leak_tutorials.git
+cd memory_leak_tutorials
+pub get
+pub serve
+```
+
+Open http://localhost:8080/
