@@ -11,8 +11,8 @@ class Aaaargh {
 
 main() {
   var variableInClosure = new Aaaargh("I'm in a closure");
-  var addButton = querySelector('#btn');
-  var leakButton = querySelector('#leak');
+  var addButton = querySelector('#addBtn');
+  var leakButton = querySelector('#leakBtn');
   StreamSubscription leakButtonClickSubscription;
   StreamSubscription addButtonClickSubscription;
 
@@ -31,7 +31,7 @@ main() {
   leak(_) {
     addButton.remove();
     // uncomment to clean up the memory leaks
-    cleanupLeaks();
+    // cleanupLeaks();
   }
   
   addButtonClickSubscription = addButton.onClick.listen(dartClassClosureFn);

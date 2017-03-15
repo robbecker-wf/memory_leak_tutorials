@@ -4,6 +4,7 @@
 <head>
       <title>Removing an element that has an onClick StreamSubscription</title>
       <link rel="stylesheet" href="../material.indigo-pink.min.css">
+      <link rel="icon" type="image/png" href="../ic_leak_remove_black_24dp_1x.png" />
       <style>
             body {
                   margin: 8px;
@@ -17,13 +18,13 @@
 <body>
       <!-- Colored FAB button -->
       <div>
-            <button id="btn" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+            <button id="addBtn" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
                   <i class="material-icons">add</i>
             </button>
             This button has an onClick handler
       </div>
       <div>
-            <button id="leak" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            <button id="leakBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                   Leak Memory
             </button>
 
