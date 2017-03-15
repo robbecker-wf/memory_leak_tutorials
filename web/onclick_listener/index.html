@@ -3,14 +3,43 @@
 
 <head>
       <title>Removing an element that has an onClick StreamSubscription</title>
+      <link rel="stylesheet" href="../material.indigo-pink.min.css">
+      <style>
+            body {
+                  margin: 8px;
+            }
+            div {
+                  margin-bottom: 20px;
+            }
+      </style>
 </head>
 
 <body>
+      <!-- Colored FAB button -->
       <div>
-            <button id="btn">Click Me</button> This button has an onClick handler
+            <button id="btn" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+                  <i class="material-icons">add</i>
+            </button>
+            This button has an onClick handler
       </div>
       <div>
-            <button id="leak">Leak Memory</button> This button will remove the first button from the DOM
+            <button id="leak" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  Leak Memory
+            </button>
+
+            This button will remove the first button from the DOM
+      </div>
+      <h5>Instructions</h5>
+      <div>
+            <ul>
+            <li>Open the Chrome Developer Tools using &#8984; &#8679; i</li>
+            <li>Select the <strong>Profile</strong> tab (it is named <strong>Memory</strong> in Chrome Canary)</li>
+            <li><strong>Trigger a GC</strong> (garbage collect) by clicking on the trash can icon</li>
+            <li>Choose <strong>Take Heap Snapshot</strong> and click the Take Snapshot button (or the circle record button)</li>
+            <li>Click on the <strong>Leak Memory</strong> button. The + button will disappear.</li>
+            <li><strong>Take a 2nd Heap Snapshot</strong></li>
+            <li>Watch the video below to see how to diagnose what's going on and explore the snapshots yourself</li>
+            </ul>
       </div>
       <script type="application/dart" src="main.dart"></script>
       <script src="/packages/browser/dart.js"></script>

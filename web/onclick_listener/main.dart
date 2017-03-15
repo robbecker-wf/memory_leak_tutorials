@@ -11,27 +11,29 @@ class Aaaargh {
 
 main() {
   var variableInClosure = new Aaaargh("I'm in a closure");
-  var btn = querySelector('#btn');
-  var leakBtn = querySelector('#leak');
-  StreamSubscription other;
-  StreamSubscription ss;
+  var addButton = querySelector('#btn');
+  var leakButton = querySelector('#leak');
+  StreamSubscription leakButtonClickSubscription;
+  StreamSubscription addButtonClickSubscription;
 
   dartClassClosureFn(_) {
     print(variableInClosure);
   }
 
-  leak(_) {
-    btn.remove();
-  }
-
   cleanupLeaks() {
-    ss?.cancel();
-    other?.cancel();
-    btn = null;
-    ss = null;
-    other = null;
+    addButtonClickSubscription?.cancel();
+    leakButtonClickSubscription?.cancel();
+    addButton = null;
+    addButtonClickSubscription = null;
+    leakButtonClickSubscription = null;
   }
 
-  ss = btn.onClick.listen(dartClassClosureFn);
-  other = leakBtn.onClick.listen(leak);
+  leak(_) {
+    addButton.remove();
+    // uncomment to clean up the memory leaks
+    cleanupLeaks();
+  }
+  
+  addButtonClickSubscription = addButton.onClick.listen(dartClassClosureFn);
+  leakButtonClickSubscription = leakButton.onClick.listen(leak);
 }
